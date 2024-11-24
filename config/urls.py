@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from firstapp.views import default_subdomain_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('subdomain/', default_subdomain_view, name='default_subdomain'),
+
 ]
