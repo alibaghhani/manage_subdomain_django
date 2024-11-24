@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-*p*)0mdna!8(7(bda5f99%6hg3plx*41f7r1a3c@#cb1g1@kd4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['secondapp.local', 'thirdapp.local', 'localhost']
 
 
 # Application definition
@@ -39,10 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'firstapp',
     'secondapp',
-    'thirdapp'
+    'thirdapp',
+    'django_hosts'
 ]
 
 MIDDLEWARE = [
+    # django hosts request middleware-------------
+    'django_hosts.middleware.HostsRequestMiddleware',
+    #---------------------------------------------
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -50,9 +55,18 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # django hosts response middleware-------------
+    'django_hosts.middleware.HostsResponseMiddleware'
+    # ---------------------------------------------
 ]
 
 ROOT_URLCONF = 'config.urls'
+
+#---django-hosts configuration------------
+ROOT_HOSTCONF = 'config.hosts' #the path of hosts module, where we specify our sub-domains
+DEFAULT_HOST = 'www' #specify the default sub-domain which can be expected as 'www'
+#--------------
 
 TEMPLATES = [
     {
