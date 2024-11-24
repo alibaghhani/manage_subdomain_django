@@ -1,2 +1,11 @@
 venv
 config/__pycache__/**
+.idea/
+db.sqlite3
+doc.log
+firstapp/__pycache__/
+firstapp/migrations/__pycache__/
+secondapp/__pycache__/
+secondapp/migrations/__pycache__/
+thirdapp/__pycache__/
+thirdapp/migrations/__pycache__/
