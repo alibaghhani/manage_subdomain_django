@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'firstapp',
     'secondapp',
     'thirdapp',
-    'django_hosts'
+    'django_hosts',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
